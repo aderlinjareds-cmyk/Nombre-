@@ -1,0 +1,103 @@
+/* static/css/style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000 url('../img/nebula.jpg') center/cover no-repeat;
+}
+
+.login-container {
+    position: relative;
+    z-index: 10;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(10, 10, 30, 0.8);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(138, 43, 226, 0.5);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+}
+
+h1 {
+    font-size: 4rem;
+    background: linear-gradient(45deg, #8a2be2, #00ffea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #00ffea;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    background: linear-gradient(45deg, #8a2be2, #00ffea);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+}
+
+.switch-text {
+    margin-top: 20px;
+    color: #aaa;
+}
+
+.switch-text strong {
+    color: #00ffea;
+    cursor: pointer;
+}
+
+.alert {
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.alert.success { background: rgba(0, 255, 0, 0.2); border: 1px solid #0f0; }
+.alert.error   { background: rgba(255, 0, 0, 0.2); border: 1px solid #f00; }
+.alert.info    { background: rgba(0, 255, 255, 0.2); border: 1px solid #0ff; }

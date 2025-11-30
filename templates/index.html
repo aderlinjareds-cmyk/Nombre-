@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="login-container">
+        <h1>NEBULA</h1>
+        <p class="subtitle">Acceso al Universo Digital</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, msg in messages %}
+                    <div class="alert {{ category }}">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form id="loginForm" method="POST" action="/login">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Iniciar Sesión</button>
+        </form>
+
+        <form id="registerForm" method="POST" action="/register" style="display: none;">
+            <input type="text" name="username" placeholder="Crear usuario" required>
+            <input type="password" name="password" placeholder="Crear contraseña" required>
+            <button type="submit" class="btn">Crear Cuenta</button>
+        </form>
+
+        <p class="switch-text">
+            <span id="switchLink">¿No tienes cuenta? <strong>Regístrate aquí</strong></span>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#8a2be2" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00ffea", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+
+        document.getElementById('switchLink').addEventListener('click', () => {
+            const login = document.getElementById('loginForm');
+            const register = document.getElementById('registerForm');
+            const link = document.getElementById('switchLink');
+            if (login.style.display === 'none') {
+                login.style.display = 'block';
+                register.style.display = 'none';
+                link.innerHTML = '¿No tienes cuenta? <strong>Regístrate aquí</strong>';
+            } else {
+                login.style.display = 'none';
+                register.style.display = 'block';
+                link.innerHTML = '¿Ya tienes cuenta? <strong>Inicia sesión</strong>';
+            }
+        });
+    </script>
+</body>
+</html>
